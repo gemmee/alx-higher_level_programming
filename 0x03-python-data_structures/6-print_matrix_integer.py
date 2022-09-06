@@ -14,5 +14,6 @@ def print_matrix_integer(matrix=[[]]):
                 if item != len(matrix[row]) - 1:
                     endspace = ' '
                 else:
-                    endspace = '\n'
+                    endspace = ''
                 print("{:d}".format(matrix[row][item]), end=endspace)
+            print()
