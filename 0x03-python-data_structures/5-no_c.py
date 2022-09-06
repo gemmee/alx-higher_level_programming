@@ -6,10 +6,9 @@ def no_c(my_string):
     '''
 
     newlist = list(my_string)
+    count = 0
     for x in newlist:
-        if x == 'c':
-            newlist.remove('c')
-        if x == 'C':
-            newlist.remove('C')
-    my_string = "".join(newlist)
-    return my_string
+        if x == 'c' or x == 'C':
+            newlist[count] = ""
+        count += 1
+    return "".join(newlist)
