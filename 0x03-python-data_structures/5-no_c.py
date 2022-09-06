@@ -1,10 +1,15 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    l = list(my_string)
-    for x in l:
+
+    '''
+    A function that removes all characters c and C from a string.
+    '''
+
+    newlist = list(my_string)
+    for x in newlist:
         if x == 'c':
-            l.remove('c')
+            newlist.remove('c')
         if x == 'C':
-            l.remove('C')
-    my_string = "".join(l)
+            newlist.remove('C')
+    my_string = "".join(newlist)
     return my_string
