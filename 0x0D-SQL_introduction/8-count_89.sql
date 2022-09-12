@@ -2,4 +2,5 @@
 -- of the database hbtn_0c_0 in my local MySQL server
 -- The database name will be passed as an argument of mysql command
 
-SELECT COUNT(*) FROM first_name WHERE id = 89; 
+-- SELECT COUNT(*) FROM first_name WHERE id = 89; 
+SELECT COUNT(id) FROM first_table WHERE id=89; 
