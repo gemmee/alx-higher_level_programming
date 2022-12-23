@@ -1,14 +1,14 @@
 #!/usr/bin/python3
 def no_c(my_string):
-
     '''
-    A function that removes all characters c and C from a string.
-    '''
+    Removes all characters c and C from a string.
+    Without using str.replace()
 
-    newlist = list(my_string)
-    count = 0
-    for x in newlist:
-        if x == 'c' or x == 'C':
-            newlist[count] = ""
-        count += 1
-    return "".join(newlist)
+    my_string: the string to be modified
+    '''
+    str = "" 
+    for x in my_string:
+        if x not in "cC":
+            str += x
+    return str
+        
