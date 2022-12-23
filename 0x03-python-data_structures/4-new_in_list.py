@@ -1,9 +1,14 @@
 #!/usr/bin/python3
 def new_in_list(my_list, idx, element):
-    if idx < 0:
-        return my_list
-    if idx >= len(my_list):
-        return my_list
-    temp_list = list(my_list)
-    temp_list[idx] = element
-    return temp_list
+    """
+    Replaces an element in a list at a specific position without modifying
+    the original list(like in C).
+
+    my_list: reference to the original list
+    idx: index of at which element is replaced
+    element: new element for replace
+    """
+    copy_list = my_list.copy()
+    if 0 <= idx < len(my_list):
+        copy_list[idx] = element
+    return copy_list
