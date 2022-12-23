@@ -1,10 +1,7 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-
     '''
-    A function that prints a matrix of integers without importing any module
-    Casting integers into strings is not allowed and you have to use
-    str.format() to print the integers.
+    Prints a matrix of integers without importing any module
     '''
     if not matrix:
         print()

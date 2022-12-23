@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 def add_tuple(tuple_a=(), tuple_b=()):
-
     '''
-    A function that adds 2 tuples.
+    Adds the first two elements of 2 tuples without importing any module.
+
+    tuple_a: the first tuple
+    tuple_b: the second tuple
     '''
 
     if len(tuple_a) == 0:
