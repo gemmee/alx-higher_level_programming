@@ -13,9 +13,8 @@ def safe_print_integer(value):
         Value can be any type (integer, string, etc.)
     '''
     try:
-        if value is not int:
-            raise TypeError
         print("{:d}".format(value))
-        return True
     except (TypeError, ValueError):
-        return False
+        return (False)
+    else:
+        return (True)
