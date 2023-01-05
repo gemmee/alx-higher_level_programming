@@ -80,9 +80,11 @@ class Square:
         Args:
             value: tuple of non negative int to be set to position
         """
-        if not isinstance(value, tuple) or len(value) != 2:
+        if not isinstance(value, tuple):
             raise TypeError("position must be a tuple of 2 positive integers")
-        if (type(value[0]) is not int) or (type(value[0]) is not int):
+        if len(value) != 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
+        if not (isinstance(value[0], int) and isinstance(value[1], int)):
             raise TypeError("position must be a tuple of 2 positive integers")
         if value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
