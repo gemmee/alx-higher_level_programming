@@ -10,12 +10,12 @@ module.exports = class Rectangle {
     }
   }
 
-  print () {
+  print (ch = 'X') {
     for (let row = 0; row < this.height; row++) {
       let col = 0;
 
       for (; col < this.width; col++) {
-        process.stdout.write('X');
+        process.stdout.write(ch);
       }
       if (col === this.width) {
         console.log('');
