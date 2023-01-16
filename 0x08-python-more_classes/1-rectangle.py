@@ -29,8 +29,8 @@ class Rectangle:
             width: facultative, a non-negative int
             height: facultative, a non-negative int
         """
-        self.width = width
         self.height = height
+        self.width = width
 
     @property
     def height(self):
@@ -66,7 +66,7 @@ class Rectangle:
         Args:
             value: non-negative int
 
-        Raise:
+        Raises:
             TypeError: If the width is not an integer
             ValueError: If the width is less than 0
         """
