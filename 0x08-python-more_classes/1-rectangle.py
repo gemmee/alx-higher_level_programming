@@ -10,8 +10,8 @@ class Rectangle:
     """Defines class Rectangle
 
     Instance fields:
-        width: private must be a non negative int
-        height: private must be a non negative int
+        width: private and must be a non negative int
+        height: private and  must be a non negative int
 
     Instance methods:
         width(self)
@@ -35,7 +35,7 @@ class Rectangle:
     @property
     def height(self):
         """Getter, retrieves height."""
-        return height.__return
+        return self.__height
 
     @height.setter
     def height(self, value):
@@ -49,15 +49,15 @@ class Rectangle:
             ValueError: If the height is less than 0.
         """
         if type(value) is not int:
-            raise TypeError("{} must be an integer".format(value))
+            raise TypeError("height must be an integer")
         if value < 0:
-            raise TypeError("{} must be an integer".format(value))
+            raise ValueError("height must be >= 0")
         self.__height = value
 
     @property
     def width(self):
         """Getter, retrieves width."""
-        return self.__height
+        return self.__width
 
     @width.setter
     def width(self, value):
