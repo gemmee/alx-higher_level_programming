@@ -71,7 +71,7 @@ class Rectangle:
             ValueError: If the width is less than 0
         """
         if type(value) is not int:
-            raise TypeError("{} must be an integer".format(value))
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise TypeError("{} must be an integer".format(value))
+            raise TypeError("width must be >= 0")
         self.__width = value
