@@ -37,7 +37,9 @@ What you should learn from this project:
 - All your files will be interpreted/compiled on Ubuntu 20.04 LTS using python3 (version 3.8.5)
 - Your code should use the `pycodestyle` (version 2.8.*)
 - The length of your files will be tested using `wc`
+---
 
+## Projects
 
 ### [0. Simple rectangle](./0-rectangle.py)
 * Write an empty class `Rectangle` that defines a rectangle:
@@ -78,6 +80,10 @@ What you should learn from this project:
 ### [9. A square is a rectangle](./9-rectangle.py)
 * Write a class Rectangle that defines a rectangle: (based on `8-rectangle.py`)
 
+### [10. N queens](./101-nqueens.py)
+* The N queens puzzle is the challenge of placing N non-attacking queens on an N×N chessboard. 
+    - Write a program that solves the N queens problem without importing `sys` module.
+    - Usage: `nqueens N`
 ---
 
 ## Author
