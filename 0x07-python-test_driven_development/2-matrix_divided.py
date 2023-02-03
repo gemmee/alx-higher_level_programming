@@ -2,7 +2,7 @@
 """
 This is the 2-matrix_divided module
 
-It is composed of a function that divides each elements of a matrix by a number.
+It is composed of a function that divides each elements of a matrix by a number
 
 A doctest has been created for this module in the /tests directory
 It can be run with
@@ -19,7 +19,7 @@ def matrix_divided(matrix, div):
         div: the divisor, must be a non 0 number
 
     Returns:
-        a matrix where all values have been divided, rounded to 2 decimal places
+        A new matrix where all values have been divided, rounded to 2 d.p
 
     Raises:
         TypeError: if the elements of the matrix aren't lists or,
@@ -30,7 +30,7 @@ def matrix_divided(matrix, div):
         ZeroDivisionError: if div is zero
 
     """
-    
+
     if not type(div) in (int, float):
         raise TypeError("div must be a number")
 
