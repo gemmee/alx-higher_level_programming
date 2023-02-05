@@ -6,7 +6,7 @@ This module contains only one function
 
 
 def inherits_from(obj, a_class):
-    """Evaluates whether an object is strictly from a subclass of a certain class
+    """Evaluates whether an object is an instance of a subclass of a class
 
     Args:
         obj: an object
