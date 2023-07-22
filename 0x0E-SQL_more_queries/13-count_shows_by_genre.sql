@@ -9,5 +9,5 @@ SELECT DISTINCT tg.name AS genre, COUNT(ts.id) AS number_of_shows
 FROM tv_show_genres AS tg
 INNER JOIN tv_shows AS ts
 ON tg.show_id = ts.id
-ORDER BY COUNT(ts.id) DESC;
+ORDER BY number_of_shows DESC;
 
