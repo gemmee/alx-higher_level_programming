@@ -42,5 +42,5 @@ Alx's curriculum for high-level programming. These projects are meant to help us
 ---
 
 ## Author
- Jeba Abera - [Geme](https://github.com/GEMMEE)
+ Gamachu Abara - [Geme](https://github.com/GEMMEE)
 
