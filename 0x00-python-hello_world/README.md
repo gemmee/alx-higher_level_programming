@@ -1,6 +1,6 @@
 # 0x00-python-hello_world
 
-![](./py.c)
+![](./py.jpg)
 
 ## Resources
 
@@ -23,34 +23,38 @@
 + What are indexing and slicing in Python
 + What is the official Python coding style and how to check your code with `pycodestyle`
 
-## The Zen of Python,
-#### - By Tim Peters
-> Beautiful is better than ugly.
-> Explicit is better than implicit.
-> Simple is better than complex.
-> Complex is better than complicated.
-> Flat is better than nested.
-> Sparse is better than dense.
-> Readability counts.
-> Special cases aren't special enough to break the rules.
-> Although practicality beats purity.
-> Errors should never pass silently.
-> Unless explicitly silenced.
-> In the face of ambiguity, refuse the temptation to guess.
-> There should be one-- and preferably only one --obvious way to do it.
-> Although that way may not be obvious at first unless you're Dutch.
-> Now is better than never.
-> Although never is often better than \*right\* now.
-> If the implementation is hard to explain, it's a bad idea.
-> If the implementation is easy to explain, it may be a good idea.
-> Namespaces are one honking great idea -- let's do more of those!
+## Zen
+```
+ The Zen of Python, by Tim Peters
+
+ Beautiful is better than ugly.
+ Explicit is better than implicit.
+ Simple is better than complex.
+ Complex is better than complicated.
+ Flat is better than nested.
+ Sparse is better than dense.
+ Readability counts.
+ Special cases aren't special enough to break the rules.
+ Although practicality beats purity.
+ Errors should never pass silently.
+ Unless explicitly silenced.
+ In the face of ambiguity, refuse the temptation to guess.
+ There should be one-- and preferably only one --obvious way to do it.
+ Although that way may not be obvious at first unless you're Dutch.
+ Now is better than never.
+ Although never is often better than \*right\* now.
+ If the implementation is hard to explain, it's a bad idea.
+ If the implementation is easy to explain, it may be a good idea.
+ Namespaces are one honking great idea -- let's do more of those!
+```
 
 ---
 ## Quiz questions
 
 0. What does this command line print?
->  >>> print(f"{98} Battery street")
-
+   ``` 
+   print(f"{98} Battery street")
+   ```
 - [x] 98 Battery street
 - [ ] 9 Battery street
 - [ ] 8 Battery street
@@ -58,9 +62,10 @@
 
 1. What does this command line print?
 
-> >>> a = "Python is cool"
-> >>> print(a[4])
-
+   ```
+    a = "Python is cool"
+    print(a[4])
+   ```
 - [ ] P
 - [x] o
 - [ ] h
@@ -68,15 +73,19 @@
 - [ ] n
 
 2. What does this command line print?
->  >>> print("Holberton school")
+   ```
+    print("Holberton school")
+   ```
 - [ ] Holberton
 - [x] Holberton school
 - [ ] 'Holberton school'
 - [ ] "Holberton school"
 
 3. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(a[7:-5])
+   ```
+    a = "Python is cool"
+    print(a[7:-5])
+   ```
 - [ ] si
 - [ ] on
 - [ ] Python
@@ -84,40 +93,50 @@
 - [ ] nohtyP
 
 4. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(a[7:])
+   ``` 
+    a = "Python is cool"
+    print(a[7:])
+   ```
 - [ ] Python i
 - [ ] cool
 - [x] is cool
 - [ ] Python is
 
 5. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(a[-2])
+   ```
+     a = "Python is cool"
+     print(a[-2])
+   ```
 - [ ] ol
 - [x] o
 - [ ] Nothing
 - [ ] l
 
 6. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(a[:6])
+   ```
+    a = "Python is cool"
+    print(a[:6])
+   ```
 - [ ] Pytho
 - [ ] Python is
 - [ ] is cool
 - [x] Python
 
 7. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(a[0:6])
+   ```
+    a = "Python is cool"
+    print(a[0:6])
+   ```
 - [x] Python
 - [ ] Python is
 - [ ] Python is cool
 - [ ] Pytho
 
 8. What does this command line print?
->  >>> a = "Python is cool"
->  >>> print(f"{98} Battery street, {'San Francisco'})
+   ```
+    a = "Python is cool"
+    print(f"{98} Battery street, {'San Francisco'})
+   ```
 - [ ] "98 Battery street, San Francisco"
 - [x] 98 Battery street, San Francisco
 - [ ] San Francisco Battery street, 98
