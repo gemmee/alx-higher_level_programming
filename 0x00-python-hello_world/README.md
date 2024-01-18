@@ -327,6 +327,51 @@ gamachu@ubuntu:~$ wc -l 9-easter_egg.py
 gamachu@ubuntu:~$
 ```
 
+## Advanced tasks (Optional)
+
+### 101-compile
+> Write a script that compiles a Python script file. The Python file name will be stored in the environment variable `$PYFILE`. The output filename has to be `PYFILEc` (ex: `export PYFILE=my_main.py` => output filename: `my_main.pyc`)
+
+```
+gamachu@ubuntu:~$ cat main.py
+#!/usr/bin/python3
+print("Best School")
+
+gamachu@ubuntu:~$ export PYFILE=main.py
+gamachu@ubuntu:~$ ./101-compile
+Compiling main.py ...
+gamachu@ubuntu:~$ ls
+101-compile main.py main.pyc  [...]
+gamachu@ubuntu:~$ cat main.pyc | zgrep -c "Best School"
+1
+gamachu@ubuntu:~$ od -t x1 main.pyc # OUTPUT ON MY MACHINE; IT'S SYSTEM DEPENDENT => SO IT CAN BE DIFFERENT
+0000000 55 0d 0d 0a 00 00 00 00 2d 46 a9 65 28 00 00 00
+0000020 e3 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00
+0000040 00 02 00 00 00 40 00 00 00 73 0c 00 00 00 65 00
+0000060 64 00 83 01 01 00 64 01 53 00 29 02 7a 0b 42 65
+0000100 73 74 20 53 63 68 6f 6f 6c 4e 29 01 da 05 70 72
+0000120 69 6e 74 a9 00 72 02 00 00 00 72 02 00 00 00 fa
+0000140 07 6d 61 69 6e 2e 70 79 da 08 3c 6d 6f 64 75 6c
+0000160 65 3e 02 00 00 00 f3 00 00 00 00
+0000173
+gamachu@ubuntu:~$
+```
+  - **Tip**: [py_compile, compileall](https://docs.python.org/3/library/py_compile.html)
+
+
+### 102-magic_calculation.py
+> Write the Python function `def magic_calculation(a, b):` that does exactly the same as the following Python bytecode:
+```
+  3           0 LOAD_CONST               1 (98)
+              3 LOAD_FAST                0 (a)
+              6 LOAD_FAST                1 (b)
+              9 BINARY_POWER
+             10 BINARY_ADD
+             11 RETURN_VALUE
+```
+  - **Tip**: [Python bytecode](https://docs.python.org/3.4/library/dis.html)
+
+
 ---
 Author: Gamachu
 
