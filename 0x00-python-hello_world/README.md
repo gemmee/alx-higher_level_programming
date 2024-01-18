@@ -372,6 +372,132 @@ gamachu@ubuntu:~$
   - **Tip**: [Python bytecode](https://docs.python.org/3.4/library/dis.html)
 
 
+## Just for fun
+```
+kiit@Ubuntu:~$ python3
+Python 3.8.10 (default, Nov 22 2023, 10:22:35)
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> name = 'Gamachu'
+>>> print(f"{name = }")
+name = 'Gamachu'
+>>> print(f"{name }")
+Gamachu
+>>> import sys
+>>> sys.stdout.write("Hello Gamachu")
+Hello Gamachu13
+>>> sys.stdout.write("Hello Gamachu\n")
+Hello Gamachu
+14
+>>> sys.stderr.write("How do you do?")
+14
+How do you do?>>>
+>>> sys.stderr.write("How do you do?\n")
+How do you do?
+15
+>>> sys.stderr.write("How do you do?")
+14
+How do you do?>>>
+>>> name = sys.stdin.read(8)
+Gamachu Abara
+>>> name
+'Gamachu '
+>>> def magic(a, b):
+...   b = a ** b
+...   return (b + 9)
+...
+>>> import dis
+>>> dis.dis(magic)
+  2           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_POWER
+              6 STORE_FAST               1 (b)
+
+  3           8 LOAD_FAST                1 (b)
+             10 LOAD_CONST               1 (9)
+             12 BINARY_ADD
+             14 RETURN_VALUE
+>>> def magic_calculation(a, b):
+...
+...    return 98 + a ** b
+...
+>>> dis.dis(magic_calculation)
+  3           0 LOAD_CONST               1 (98)
+              2 LOAD_FAST                0 (a)
+              4 LOAD_FAST                1 (b)
+              6 BINARY_POWER
+              8 BINARY_ADD
+             10 RETURN_VALUE
+>>> def magic2(a, b):
+...   result = 98
+...   result += a ** b
+...   return result
+...
+>>> dis.dis(magic2)
+  2           0 LOAD_CONST               1 (98)
+              2 STORE_FAST               2 (result)
+
+  3           4 LOAD_FAST                2 (result)
+              6 LOAD_FAST                0 (a)
+              8 LOAD_FAST                1 (b)
+             10 BINARY_POWER
+             12 INPLACE_ADD
+             14 STORE_FAST               2 (result)
+
+  4          16 LOAD_FAST                2 (result)
+             18 RETURN_VALUE
+>>> 
+>>> def magic_calculation(a, b):
+...   return (
+...       98 + (a ** b))
+...
+>>> dis.dis(magic_calculation)
+  3           0 LOAD_CONST               1 (98)
+              2 LOAD_FAST                0 (a)
+              4 LOAD_FAST                1 (b)
+              6 BINARY_POWER
+              8 BINARY_ADD
+
+  2          10 RETURN_VALUE
+>>> def magic_calculation(a, b):
+...
+...   return (98 + (a ** b))
+...
+>>> dis.dis(magic_calculation)
+  3           0 LOAD_CONST               1 (98)
+              2 LOAD_FAST                0 (a)
+              4 LOAD_FAST                1 (b)
+              6 BINARY_POWER
+              8 BINARY_ADD
+             10 RETURN_VALUE
+>>> quit()
+gamachu@ubuntu:~$ cat 102-magic_calculation.py
+#!/usr/bin/python3
+def magic_calculation(a, b):
+    return 98 + a ** b
+gamachu@ubuntu:~$ python3
+Python 3.8.10 (default, Nov 22 2023, 10:22:35)
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+>>>
+>>> import importlib
+>>> magic = importlib.import_module('102-magic_calcul
+ation')
+>>> import dis
+>>> dis.dis(magic)
+Disassembly of magic_calculation:
+  3           0 LOAD_CONST               1 (98)
+              2 LOAD_FAST                0 (a)
+              4 LOAD_FAST                1 (b)
+              6 BINARY_POWER
+              8 BINARY_ADD
+             10 RETURN_VALUE
+
+>>> exit() # or quit() or Ctrl + D i.e EOF
+gamachu@ubuntu:~$ 
+```
+
 ---
 Author: Gamachu
 
