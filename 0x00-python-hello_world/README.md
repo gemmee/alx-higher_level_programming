@@ -42,7 +42,7 @@
  There should be one-- and preferably only one --obvious way to do it.
  Although that way may not be obvious at first unless you're Dutch.
  Now is better than never.
- Although never is often better than \*right\* now.
+ Although never is often better than *right* now.
  If the implementation is hard to explain, it's a bad idea.
  If the implementation is easy to explain, it may be a good idea.
  Namespaces are one honking great idea -- let's do more of those!
@@ -53,7 +53,7 @@
 
 0. What does this command line print?
    ``` 
-   print(f"{98} Battery street")
+   >>> print(f"{98} Battery street")
    ```
 - [x] 98 Battery street
 - [ ] 9 Battery street
@@ -63,8 +63,8 @@
 1. What does this command line print?
 
    ```
-    a = "Python is cool"
-    print(a[4])
+    >>> a = "Python is cool"
+    >>> print(a[4])
    ```
 - [ ] P
 - [x] o
@@ -74,7 +74,7 @@
 
 2. What does this command line print?
    ```
-    print("Holberton school")
+    >>> print("Holberton school")
    ```
 - [ ] Holberton
 - [x] Holberton school
@@ -83,8 +83,8 @@
 
 3. What does this command line print?
    ```
-    a = "Python is cool"
-    print(a[7:-5])
+    >>> a = "Python is cool"
+    >>> print(a[7:-5])
    ```
 - [ ] si
 - [ ] on
@@ -94,8 +94,8 @@
 
 4. What does this command line print?
    ``` 
-    a = "Python is cool"
-    print(a[7:])
+    >>> a = "Python is cool"
+    >>> print(a[7:])
    ```
 - [ ] Python i
 - [ ] cool
@@ -104,8 +104,8 @@
 
 5. What does this command line print?
    ```
-     a = "Python is cool"
-     print(a[-2])
+    >>> a = "Python is cool"
+    >>>  print(a[-2])
    ```
 - [ ] ol
 - [x] o
@@ -114,8 +114,8 @@
 
 6. What does this command line print?
    ```
-    a = "Python is cool"
-    print(a[:6])
+    >>> a = "Python is cool"
+    >>> print(a[:6])
    ```
 - [ ] Pytho
 - [ ] Python is
@@ -124,8 +124,8 @@
 
 7. What does this command line print?
    ```
-    a = "Python is cool"
-    print(a[0:6])
+    >>> a = "Python is cool"
+    >>> print(a[0:6])
    ```
 - [x] Python
 - [ ] Python is
@@ -134,8 +134,8 @@
 
 8. What does this command line print?
    ```
-    a = "Python is cool"
-    print(f"{98} Battery street, {'San Francisco'})
+    >>> a = "Python is cool"
+    >>> print(f"{98} Battery street, {'San Francisco'})
    ```
 - [ ] "98 Battery street, San Francisco"
 - [x] 98 Battery street, San Francisco
