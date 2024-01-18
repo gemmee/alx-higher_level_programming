@@ -371,10 +371,13 @@ gamachu@ubuntu:~$
 ```
   - **Tip**: [Python bytecode](https://docs.python.org/3.4/library/dis.html)
 
-
+---
+---
 ## Just for fun
+---
+---
 ```
-kiit@Ubuntu:~$ python3
+gamachu@ubuntu:~$ python3
 Python 3.8.10 (default, Nov 22 2023, 10:22:35)
 [GCC 9.4.0] on linux
 Type "help", "copyright", "credits" or "license" for more information.
@@ -497,7 +500,7 @@ Disassembly of magic_calculation:
 >>> exit() # or quit() or Ctrl + D i.e EOF
 gamachu@ubuntu:~$ 
 ```
-
+---
 ---
 Author: Gamachu
 
