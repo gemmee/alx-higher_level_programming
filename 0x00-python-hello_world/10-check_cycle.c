@@ -1,28 +1,26 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * check_cycle - checks if a singly linked list has a cycle in it using
- * Floyd's cycle checking algorithm(also called tortoise and hare algorithm)
- * @list:  pointer to the head of the linked list
+ * check_cycle - checks if a linked list has a cycle
+ * @list: pointer to the linked list
  *
- * Return: 0 if there is no cycle, 1 if there is a cycle
+ * Return: 1 if it has a cycle
+ *         0 if it doesn't have a cycle
+ * Author: Gamachu AD
  */
-
 int check_cycle(listint_t *list)
 {
-	listint_t *tortoise, *rabbit;
+	listint_t *temp = list;
+	int has_cycle = 0;
 
-	tortoise = list;
-	rabbit = list;
-	while (tortoise && rabbit && rabbit->next)
+	while (temp->next != NULL)
 	{
-		tortoise = tortoise->next;
-		rabbit = rabbit->next->next;
-		if (tortoise == rabbit)
+		if (temp->next == list)
 		{
-			return (1);
+			has_cycle = 1;
+			break;
 		}
+		temp = temp->next;
 	}
-	return (0);
+	return (has_cycle);
 }
