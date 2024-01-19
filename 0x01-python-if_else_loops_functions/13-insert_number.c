@@ -20,15 +20,15 @@ listint_t *insert_node(listint_t **head, int number)
 		return (NULL);
 	new->n = number;
 	new->next = NULL;
-	if (temp == NULL) /* edge case 1: list is empty */
+	if (*head == NULL) /* edge case 1: list is empty */
 	{
-		temp = new;
+		*head = new;
 		return (new);
 	}
-	if (new->n < temp->n) /* edge case 2: number is the smallest */
+	if (new->n < (*head)->n) /* edge case 2: insert at beginning */
 	{
-		new->next = temp;
-		temp = new;
+		new->next = *head;
+		*head = new;
 		return (new);
 	}
 	if (temp->next == NULL && new->n > temp->n)
