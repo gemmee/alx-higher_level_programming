@@ -380,6 +380,353 @@ Write the Python function def magic_calculation(a, b, c): that does exactly the 
              46 BINARY_SUBTRACT
              47 RETURN_VALUE
 ```
+  - **Tip**: [ByteCode](https://docs.python.org/3.4/library/dis.html)
 
+## Just for Fun
+```
+gamachu@ubuntu:~$ python3
+>>> sum(range(101))
+5050
+>>> print(sum(range(101))
+... )
+5050
+>>> range(101)
+range(0, 101)
+>>> print(range(101))
+range(0, 101)
+>>> list(range(4,-1))
+[]
+>>> list(range(-1, 4))
+[-1, 0, 1, 2, 3]
+>>> list(range(-6, 0, -1))
+[]
+>>> list(range(-6, 0, 1))
+[-6, -5, -4, -3, -2, -1]
+>>> list(range(-6, 0, 2))
+[-6, -4, -2]
+>>> list(range(2,2))
+[]
+>>> def f(a, L=[]):
+...   L.append(a)
+...   return L
+...
+>>> print(f(1))
+[1]
+>>> print(f(2))
+[1, 2]
+>>> print(f(4))
+[1, 2, 4]
+>>> def g(b, t=()):
+...   L = list(t)
+...   L.append(b)
+...   return tuple(L)
+...
+>>> print(g(1))
+(1,)
+>>> print(g(2))
+(2,)
+>>> print(g(3))
+(3,)
+>>> "{1}{0}{2}".format("One", "Zero", "Two")
+'ZeroOneTwo'
+>>> "{}-{}-{}".format("One", "Zero", "Two")
+'One-Zero-Two'
+>>> "{1}-{0}-{2}".format("One", "Zero", "Two")
+'Zero-One-Two'
+>>> "{1}-{0}-{2}".format("One", "Zero", 2)
+'Zero-One-2'
+>>> "{1}-{0}-{2}".format(1, 0, 2)
+'0-1-2'
+>>> "{1}-{0}-{go}".format(1, 0, go="Fiigi")
+'0-1-Fiigi'
+>>> "float {0:f}".format(3.14)
+'float 3.140000'
+>>> "float {0:f}".format(3)
+'float 3.000000'
+>>> "float {0:d}".format(3)
+'float 3'
+>>> "float {0:3f}".format(3.14)
+'float 3.140000'
+>>> "float {0:30f}".format(3.14)
+'float                       3.140000'
+>>> "float {0:30.3f}".format(3.14)
+'float                          3.140'
+>>> "float {0:=^30.3f}".format(3.14)
+'float ============3.140============='
+>>> "float {0:=30.3f}".format(3.14)
+'float                          3.140'
+>>> "float {0:=>30.3f}".format(3.14)
+'float =========================3.140'
+>>> "float {0:=<30.3f}".format(3.14)
+'float 3.140========================='
+>>> "float {0:*>10.0f}".format(3.14)
+'float *********3'
+>>> "float {0:*>10.1f}".format(3.14)
+'float *******3.1'
+>>> "float {0:>5.1f}".format(3.14)
+'float >>3.1'
+>>> "float {0:<>5.1f}".format(3.14)
+'float <<3.1'
+>>> "float {0:<5.1f}".format(3.14)
+'float 3.1  '
+>>> "float {0:5.1f}".format(3.14)
+'float   3.1'
+>>> "float {0:>5.1f}".format(3.14)
+'float   3.1'
+>>> "float {0:^5.1f}".format(3.14)
+'float  3.1 '
+>>> for i in range(1, 10):
+...   print("{:*>5d} {:*>5d} {:*>5d}".format(i, i*i,
+i*i
+...
+...
+... ))
+...
+****1 ****1 ****1
+****2 ****4 ****4
+****3 ****9 ****9
+****4 ***16 ***16
+****5 ***25 ***25
+****6 ***36 ***36
+****7 ***49 ***49
+****8 ***64 ***64
+****9 ***81 ***81
+>>> for i in range(1, 10):
+...   print("{:_>5d} {:_>5d} {:_>5d}".format(i, i*i, i*i*i))
+...
+____1 ____1 ____1
+____2 ____4 ____8
+____3 ____9 ___27
+____4 ___16 ___64
+____5 ___25 __125
+____6 ___36 __216
+____7 ___49 __343
+____8 ___64 __512
+____9 ___81 __729
+>>> 12 == 48/4
+True
+>>> 12 == 12.00
+True
+>>> 12 == 12.002
+False
+>>> 12.002 == 12.002
+True
+>>> 3/2 == 3/2
+True
+>>> 12 is 12
+<stdin>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+True
+>>> i = 12
+>>> j = 12
+>>> i is j
+True
+>>> k = j
+>>> k is j
+True
+>>> m = 12.00
+>>> k is m
+False
+>>> m == k
+True
+>>> -24 % 10
+6
+>>> 0 % 10
+0
+>>> 5 % 10
+5
+>>> -24 % -10
+-4
+>>> -24 % 10 - 10
+-4
+>>> 24 % -10
+-6
+>>> chr(112)
+'p'
+>>> chr(97)
+'a'
+>>> chr(122)
+'z'
+>>> type(chr(122))
+<class 'str'>
+>>> print(f"10", end=" ")
+10 >>>
+>>> n = print("HI")
+HI
+>>> print(n)
+None
+>>> print(f"10", end="?? ")
+10?? >>> print(f"{10:*>5.2f}")
+10.00
+>>> print(f"{10:*>11.2f}")
+******10.00
+>>> ord('z')
+122
+>>> type(ord('0'))
+<class 'int'>
+>>> ord('0')
+48
+>>> "i" not in "in"
+False
+>>> "I" in "INPUT"
+True
+>>> print(f"{10:x}")
+a
+>>> print(f"{11:X}")
+B
+>>> print(f"{'Hi'}" + " {}".format(22), end="*")
+Hi 22*>>>
+>>> 5 < 6 < 8
+True
+>>> 5 < 6 < 3
+False
+>>> 'Z' < 'z'
+True
+>>> chr(ord('A') + 26)
+'['
+>>> chr(ord('A') + 32)
+'a'
+>>> chr(ord('a') - 32)
+'A'
+>>> print("Hello"[-1])
+o
+>>> for i in range(ord('z'), ord('a')-1, -1):
+...   print("{}".format(chr(i - 32) if i % 2 else chr(i)))
+...
+z
+Y
+x
+W
+v
+U
+t
+S
+r
+Q
+p
+O
+n
+M
+l
+K
+j
+I
+h
+G
+f
+E
+d
+C
+b
+A
+>>> for i in range(ord('z'), ord('a')-1, -1):
+...   print("{}".format(chr(i - 32) if i % 2 else chr(i)), end='')
+...
+zYxWvUtSrQpOnMlKjIhGfEdCbA>>>
+>>> def magic(a, b, c):
+...
+...   if a < b:
+...     return c
+...   elif c > b:
+...     return a + b
+...   else:
+...     return a * b - c
+...
+>>> import dis
+>>> dis.dis(magic)
+  3           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_FALSE       12
+
+  4           8 LOAD_FAST                2 (c)
+             10 RETURN_VALUE
+
+  5     >>   12 LOAD_FAST                2 (c)
+             14 LOAD_FAST                1 (b)
+             16 COMPARE_OP               4 (>)
+             18 POP_JUMP_IF_FALSE       28
+
+  6          20 LOAD_FAST                0 (a)
+             22 LOAD_FAST                1 (b)
+             24 BINARY_ADD
+             26 RETURN_VALUE
+
+  8     >>   28 LOAD_FAST                0 (a)
+             30 LOAD_FAST                1 (b)
+             32 BINARY_MULTIPLY
+             34 LOAD_FAST                2 (c)
+             36 BINARY_SUBTRACT
+             38 RETURN_VALUE
+             40 LOAD_CONST               0 (None)
+             42 RETURN_VALUE
+>>> def magic_calculation(a, b, c):
+...   if a < b:
+...     return c
+...   elif c > b:
+...     return a + b
+...   return a * b - c
+...
+>>> dis.dis(magic_calculation)
+  2           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_FALSE       12
+
+  3           8 LOAD_FAST                2 (c)
+             10 RETURN_VALUE
+
+  4     >>   12 LOAD_FAST                2 (c)
+             14 LOAD_FAST                1 (b)
+             16 COMPARE_OP               4 (>)
+             18 POP_JUMP_IF_FALSE       28
+
+  5          20 LOAD_FAST                0 (a)
+             22 LOAD_FAST                1 (b)
+             24 BINARY_ADD
+             26 RETURN_VALUE
+
+  6     >>   28 LOAD_FAST                0 (a)
+             30 LOAD_FAST                1 (b)
+             32 BINARY_MULTIPLY
+             34 LOAD_FAST                2 (c)
+             36 BINARY_SUBTRACT
+             38 RETURN_VALUE
+>>> def magic_calculation(a, b, c):
+...
+...   if a < b:
+...     return c
+...   elif c > b:
+...     return a + b
+...   return a * b - c
+...
+>>> dis.dis(magic_calculation)
+  3           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_FALSE       12
+
+  4           8 LOAD_FAST                2 (c)
+             10 RETURN_VALUE
+
+  5     >>   12 LOAD_FAST                2 (c)
+             14 LOAD_FAST                1 (b)
+             16 COMPARE_OP               4 (>)
+             18 POP_JUMP_IF_FALSE       28
+
+  6          20 LOAD_FAST                0 (a)
+             22 LOAD_FAST                1 (b)
+             24 BINARY_ADD
+             26 RETURN_VALUE
+
+  7     >>   28 LOAD_FAST                0 (a)
+             30 LOAD_FAST                1 (b)
+             32 BINARY_MULTIPLY
+             34 LOAD_FAST                2 (c)
+             36 BINARY_SUBTRACT
+             38 RETURN_VALUE
+>>> # now all is good, let's exit
+>>> quit()
+gamachu@ubuntu:~$
+```
 ---
 Author: gAmAchU
