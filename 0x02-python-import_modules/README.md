@@ -374,6 +374,176 @@ gamachu@ubuntu:~$ wc -l 103-fast_alphabet.py
 3 103-fast_alphabet.py
 gamachu@ubuntu:~$
 ```
+---
+# `JUST FOR FUN`
+```
+>>> import os
+>>> os.system('ls')
+0-add.py          100-my_calculator.py  102-magic_calculation.py  3-infinite_add.py      README.md    calculator_1.py           variable_load_5.py
+0-import_add.py   101-easy_print.py     103-fast_alphabet.py      4-hidden_discovery.py  __pycache__  hidden_4.pyc
+1-calculation.py  101-easy_print2.py    2-args.py                 5-variable_load.py     add_0.py     magic_calculation_102.py
+0
+>>> os.system('cat 102-magic_calculation.py -n')
+     1  #!/usr/bin/python3
+     2  def magic_calculation(a, b):
+     3      from magic_calculation_102 import add, sub  # LOAD_CONST((add, sub)); IMPORT_NAME(magic_calculation_102); IMPORT_FROM(add); STORE_FAST(add); IMPORT_FROM(sub); STORE_FAST(sub); POP_TOP
+     4      if a < b:  # LOAD_FAST(a); LOAD_FAST(b); COMPARE_OP(<); POP_JUMP_IF_FALSE (line_10)
+     5          c = add(a, b)  # LOAD_FAST(add), LOAD_FAST (a); LOAD_FAST(b); CALL_FUNCTION(add); STORE_FAST(c)
+     6          for i in range(4, 6):  # SETUP_LOOP(to line_8); LOAD_GLOBAL(range); LOAD_CONST(4); LOAD_CONST(6); CALL_FUNCTION(range); GET_ITER; FOR_ITER(to line_7); STORE_FAST(i)
+     7              c = add(c, i)  # LOAD_FAST(add); LOAD_FAST(c); LOAD_FAST(i); CALL_FUNCTION(add); STORE_FAST(c); JUMP_ABSOLUTE(for_iter); POP_BLOCK
+     8          return c  # LOAD_FAST(c); RETURN_VALUE
+     9      else:
+    10          return sub(a, b)  # LOAD_FAST(sub); LOAD_FAST(a), LOAD_FAST(b); CALL_FUNCTION(sub); RETURN_VALUE;
+    11
+0
+>>> magic = __import__('102-magic_calculation')
+>>> magic
+<module '102-magic_calculation' from '/home/kiit/Desktop/alx/alx-higher_level_programming/0x02-python-import_modules/102-magic_calculation.py'>
+>>> import dis
+>>> dis.dis(magic)
+Disassembly of magic_calculation:
+  3           0 LOAD_CONST               1 (0)
+              2 LOAD_CONST               2 (('add', 'sub'))
+              4 IMPORT_NAME              0 (magic_calculation_102)
+              6 IMPORT_FROM              1 (add)
+              8 STORE_FAST               2 (add)
+             10 IMPORT_FROM              2 (sub)
+             12 STORE_FAST               3 (sub)
+             14 POP_TOP
 
+  4          16 LOAD_FAST                0 (a)
+             18 LOAD_FAST                1 (b)
+             20 COMPARE_OP               0 (<)
+             22 POP_JUMP_IF_FALSE       64
+
+  5          24 LOAD_FAST                2 (add)
+             26 LOAD_FAST                0 (a)
+             28 LOAD_FAST                1 (b)
+             30 CALL_FUNCTION            2
+             32 STORE_FAST               4 (c)
+
+  6          34 LOAD_GLOBAL              3 (range)
+             36 LOAD_CONST               3 (4)
+             38 LOAD_CONST               4 (6)
+             40 CALL_FUNCTION            2
+             42 GET_ITER
+        >>   44 FOR_ITER                14 (to 60)
+             46 STORE_FAST               5 (i)
+
+  7          48 LOAD_FAST                2 (add)
+             50 LOAD_FAST                4 (c)
+             52 LOAD_FAST                5 (i)
+             54 CALL_FUNCTION            2
+             56 STORE_FAST               4 (c)
+             58 JUMP_ABSOLUTE           44
+
+  8     >>   60 LOAD_FAST                4 (c)
+             62 RETURN_VALUE
+
+ 10     >>   64 LOAD_FAST                3 (sub)
+             66 LOAD_FAST                0 (a)
+             68 LOAD_FAST                1 (b)
+             70 CALL_FUNCTION            2
+             72 RETURN_VALUE
+             74 LOAD_CONST               0 (None)
+             76 RETURN_VALUE
+
+>>> magic.magic_calculation(4, 2)
+2
+>>> magic.magic_calculation(2, 4)
+15
+>>>
+>>> # Let's remove the comments from 102-magic_calculation.py
+>>> os.system('vi 102-magic_calculation.py')
+0
+>>> os.system('cat -n 102-magic_calculation.py') # after removing the comment part
+     1  #!/usr/bin/python3
+     2  def magic_calculation(a, b):
+     3      from magic_calculation_102 import add, sub
+     4      if a < b:
+     5          c = add(a, b)
+     6          for i in range(4, 6):
+     7              c = add(c, i)
+     8          return c
+     9      else:
+    10          return sub(a, b)
+    11
+0
+>>> os.system('cat -n magic_calculation-102.py') # I created this file for testing
+cat: magic_calculation-102.py: No such file or directory
+256
+>>> os.system('cat -n magic_calculation_102.py') # I created this file for testing
+     1  #!/usr/bin/python3
+     2  def add(a, b):
+     3      return a + b
+     4  def sub(a, b):
+     5      return a - b
+     6  if __name__ == '__main__':
+     7      print(add(1, 2))
+     8      print(sub(2, -1))
+     9
+0
+>>> import magic_calculation_102 as magic2 # note that it's not executed when imported
+>>> magic2.add(4, 2)
+6
+>>> magic2.sub(2, -1)
+3
+>>> dis.dis('magic2')
+  1           0 LOAD_NAME                0 (magic2)
+              2 RETURN_VALUE
+>>> dis.dis(magic2)
+Disassembly of add:
+  3           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+
+Disassembly of sub:
+  5           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_SUBTRACT
+              6 RETURN_VALUE
+
+>>> os.system('python3 -c "import dis as d; d.dis(magic_calculation_102)"')
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+NameError: name 'magic_calculation_102' is not defined
+256
+>>> os.system('python3 -c "import dis as d; import magic_calculation_102 as m;  d.dis(m)"')
+Disassembly of add:
+  3           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_ADD
+              6 RETURN_VALUE
+
+Disassembly of sub:
+  5           0 LOAD_FAST                0 (a)
+              2 LOAD_FAST                1 (b)
+              4 BINARY_SUBTRACT
+              6 RETURN_VALUE
+
+0
+>>> os.system('git add 102-magic_calculation.py')
+0
+>>> os.system('git commit -m "Debytecode:) the python bytecode"')
+[master f2d1d88] Debytecode:) the python bytecode
+ 1 file changed, 11 insertions(+)
+ create mode 100755 0x02-python-import_modules/102-magic_calculation.py
+0
+>>> os.system('git push')
+Enumerating objects: 6, done.
+Counting objects: 100% (6/6), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 498 bytes | 498.00 KiB/s, done.
+Total 4 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To github.com:GEMMEE/alx-higher_level_programming.git
+   23b1294..f2d1d88  master -> master
+0
+>>>
+>>> quit()
+gamachu@ubuntu:~$
+```
 ---
 Author: g**A**m**A**ch**U**
