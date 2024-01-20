@@ -6,9 +6,8 @@ def no_c(my_string):
 
     my_string: the string to be modified
     '''
-    str = "" 
+    str = ''
     for x in my_string:
         if x not in "cC":
             str += x
     return str
-        
