@@ -715,5 +715,232 @@ gamachu@ubuntu:~$
 ```
   - *Tip*: Observe the following disassembly of the required functiion:
 ```
+gamachu@ubuntu:~$  python3 -c "from dis import dis as d; ret_tu
+ple = __import__('8-multiple_returns'); d(ret_tuple)"
+Disassembly of multiple_returns:
+  3           0 LOAD_FAST                0 (sentence)
+              2 POP_JUMP_IF_TRUE         8
+              4 LOAD_CONST               1 ('None')
+              6 JUMP_FORWARD             6 (to 14)
+        >>    8 LOAD_FAST                0 (sentence)
+             10 LOAD_CONST               2 (0)
+             12 BINARY_SUBSCR
+        >>   14 STORE_FAST               1 (first_char)
+
+  4          16 LOAD_GLOBAL              0 (len)
+             18 LOAD_FAST                0 (sentence)
+             20 CALL_FUNCTION            1
+             22 LOAD_FAST                1 (first_char)
+             24 BUILD_TUPLE              2
+             26 RETURN_VALUE
+
+gamachu@ubuntu:~$  cat 8-multiple_returns.py -n
+     1  #!/usr/bin/python3
+     2  def multiple_returns(sentence):
+     3      first_char = 'None' if not sentence else sentence[0]
+     4      return len(sentence), first_char  # return a tuple
+gamachu@ubuntu:~$
+```
+
+## [9-max_integer.py)(./9-max_integer.py)
+> Write a function that finds the biggest integer of a list.
+
+  - Prototype: def max_integer(my_list=[]):
+  - If the list is empty, return None
+  - You can assume that the list only contains integers
+  - You are not allowed to import any module
+  - You are not allowed to use the builtin max()
+```
+gamachu@ubuntu:~$ cat 9-main.py
+#!/usr/bin/python3
+max_integer = __import__('9-max_integer').max_integer
+
+my_list = [1, 90, 2, 13, 34, 5, -13, 3]
+max_value = max_integer(my_list)
+print("Max: {}".format(max_value))
+
+gamachu@ubuntu:~$ ./9-main.py
+Max: 90
 gamachu@ubuntu:~$ 
+```
+  - *Tip*: Observe the following disassembly of the function:
+```
+gamachu@ubuntu:~$ python3 -c "from dis import dis as d; max = __import__('9-max_integer'); d(max)"
+Disassembly of max_integer:
+  3           0 LOAD_FAST                0 (my_list)
+              2 POP_JUMP_IF_TRUE         8
+              4 LOAD_CONST               0 (None)
+              6 RETURN_VALUE
+        >>    8 LOAD_GLOBAL              0 (sorted)
+             10 LOAD_FAST                0 (my_list)
+             12 CALL_FUNCTION            1
+             14 LOAD_CONST               1 (-1)
+             16 BINARY_SUBSCR
+             18 RETURN_VALUE
+gamachu@ubuntu:~$  cat 9-max_integer.py -n
+     1  #!/usr/bin/python3
+     2  def max_integer(my_list=[]):
+     3      return None if not my_list else sorted(my_list)[-1]
+gamachu@ubuntu:~$
+```
+
+## [10-divisible_by_2.py](./10-divisible_by_2.py)
+> Write a function that finds all multiples of 2 in a list.
+
+  - Prototype: def divisible_by_2(my_list=[]):
+  - Return a new list with True or False, depending on whether the integer at the same position in the original list is a multiple of 2
+  - The new list should have the same size as the original list
+  - You are not allowed to import any module
+```
+gamachu@ubuntu:~$ cat 10-main.py
+#!/usr/bin/python3
+divisible_by_2 = __import__('10-divisible_by_2').divisible_by_2
+
+my_list = [0, 1, 2, 3, 4, 5, 6]
+list_result = divisible_by_2(my_list)
+
+i = 0
+while i < len(list_result):
+    print("{:d} {:s} divisible by 2".format(my_list[i], "is" if list_result[i] else "is not"))
+    i += 1
+
+gamachu@ubuntu:~$ ./10-main.py
+0 is divisible by 2
+1 is not divisible by 2
+2 is divisible by 2
+3 is not divisible by 2
+4 is divisible by 2
+5 is not divisible by 2
+6 is divisible by 2
 gamachu@ubuntu:~$ 
+```
+  - *Tip*: Observe the disassembly of my implementation of the function:
+```
+gamachu@ubuntu:~$ python3 -c "from dis import dis as d; div2 =
+ __import__('10-divisible_by_2'); d(div2)"
+Disassembly of divisible_by_2:
+  3           0 LOAD_FAST                0 (my_list)
+              2 LOAD_CONST               0 (None)
+              4 LOAD_CONST               0 (None)
+              6 BUILD_SLICE              2
+              8 BINARY_SUBSCR
+             10 STORE_FAST               1 (new_list)
+
+  4          12 LOAD_GLOBAL              0 (range)
+             14 LOAD_GLOBAL              1 (len)
+             16 LOAD_FAST                1 (new_list)
+             18 CALL_FUNCTION            1
+             20 CALL_FUNCTION            1
+             22 GET_ITER
+        >>   24 FOR_ITER                28 (to 54)
+             26 STORE_FAST               2 (i)
+
+  5          28 LOAD_FAST                1 (new_list)
+             30 LOAD_FAST                2 (i)
+             32 BINARY_SUBSCR
+             34 LOAD_CONST               1 (2)
+             36 BINARY_MODULO
+             38 POP_JUMP_IF_FALSE       44
+             40 LOAD_CONST               2 (False)
+             42 JUMP_FORWARD             2 (to 46)
+        >>   44 LOAD_CONST               3 (True)
+        >>   46 LOAD_FAST                1 (new_list)
+             48 LOAD_FAST                2 (i)
+             50 STORE_SUBSCR
+             52 JUMP_ABSOLUTE           24
+
+  6     >>   54 LOAD_FAST                1 (new_list)
+             56 RETURN_VALUE
+
+gamachu@ubuntu:~$ cat 10-divisible_by_2.py -n
+     1  #!/usr/bin/python3
+     2  def divisible_by_2(my_list=[]):
+     3      new_list = my_list[:]  # make copy of my_list
+     4      for i in range(len(new_list)):
+     5          new_list[i] = False if new_list[i] % 2 else True
+     6      return new_list
+gamachu@ubuntu:~$
+```
+
+## [11-delete_at.py](./11-delete_at.py)
+> Write a function that deletes the item at a specific position in a list.
+
+  - Prototype: def delete_at(my_list=[], idx=0):
+  - If idx is negative or out of range, nothing change (returns the same list)
+  - You are not allowed to use pop()
+  - You are not allowed to import any module
+```
+gamachu@ubuntu:~$ cat 11-main.py
+#!/usr/bin/python3
+delete_at = __import__('11-delete_at').delete_at
+
+my_list = [1, 2, 3, 4, 5]
+idx = 3
+new_list = delete_at(my_list, idx)
+print(new_list)
+print(my_list)
+
+gamachu@ubuntu:~$ ./11-main.py
+[1, 2, 3, 5]
+[1, 2, 3, 5]
+gamachu@ubuntu:~$
+```
+  - *Tip*: Observe the following disassembly of my own implementation of the function:
+```
+gamachu@ubuntu:~$  python3 -c "from dis import dis as d; dat=__import__('11-delete_at'); d(dat)"
+Disassembly of delete_at:
+  3           0 LOAD_FAST                1 (idx)
+              2 LOAD_CONST               1 (0)
+              4 COMPARE_OP               0 (<)
+              6 POP_JUMP_IF_TRUE        20
+              8 LOAD_FAST                1 (idx)
+             10 LOAD_GLOBAL              0 (len)
+             12 LOAD_FAST                0 (my_list)
+             14 CALL_FUNCTION            1
+             16 COMPARE_OP               5 (>=)
+             18 POP_JUMP_IF_FALSE       24
+
+  4     >>   20 LOAD_FAST                0 (my_list)
+             22 RETURN_VALUE
+
+  5     >>   24 BUILD_LIST               0
+             26 LOAD_FAST                0 (my_list)
+             28 LOAD_FAST                1 (idx)
+             30 LOAD_FAST                1 (idx)
+             32 LOAD_CONST               2 (1)
+             34 BINARY_ADD
+             36 BUILD_SLICE              2
+             38 STORE_SUBSCR
+
+  6          40 LOAD_FAST                0 (my_list)
+             42 RETURN_VALUE
+
+gamachu@ubuntu:~$ cat 11-delete_at.py -n
+     1  #!/usr/bin/python3
+     2  def delete_at(my_list=[], idx=0):
+     3      if idx < 0 or idx >= len(my_list):
+     4          return my_list
+     5      my_list[idx:idx+1] = []  # equivalent to del my_list[idx] or pop[idx]
+     6      return my_list
+gamachu@ubuntu:~$
+```
+
+## [12-switch.py](./12-switch.py)
+> Complete the following source code in order to switch value of a and b
+
+```
+#!/usr/bin/python3
+a = 89
+b = 10
+# YOUR CODE GOES HERE. PLEASE REMOVE THIS LINE
+print("a={:d} - b={:d}".format(a, b))
+```
+  - Your code should be inserted where the comment is (line 4)
+  - Your program should be exactly 5 lines long
+```
+gamachu@ubuntu:~$ ./12-switch.py
+a=10 - b=89
+gamachu@ubuntu:~$ wc -l 12-switch.py
+5 12-switch.py
+gamachu@ubuntu:~$ 
+```
