@@ -131,7 +131,7 @@ class SinglyLinkedList:
             self.__head = new
             return
 
-        while (node.next is not None) and (node.next.data < new.data):
+        while (node.next is not None) and (node.next.data <= new.data):
             node = node.next
 
         new.next = node.next
