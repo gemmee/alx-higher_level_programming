@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 '''
 This module's name is 1-rectangle
 '''
