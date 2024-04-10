@@ -1,0 +1,29 @@
+The ``0-add_integer`` module
+=============================
+Using ``add_integer``
+---------------------
+First import add_integer from 0-add_integer
+
+>>> add_integer = __import__('0-add_integer').add_integer
+>>> add_integer(-98)
+0
+>>> add_integer(0, -100)
+-100
+>>> add_integer(100.99, -100)
+0
+>>> add_integer(100.99, 'Five')
+Traceback (most recent call last):
+	...
+TypeError: b must be an integer
+>>> add_integer('1.99', 34)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+>>> add_integer(None, None)
+Traceback (most recent call last):
+	...
+TypeError: a must be an integer
+>>> add_integer(11, -101)
+-90
+>>> add_integer(11.5, -101.9)
+-90
