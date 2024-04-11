@@ -5,52 +5,104 @@ Using text_indentation
 
 >>> text_indentation = __import__('5-text_indentation').text_indentation
 >>> text_indentation('gama:chu?abara.')
-gama
-
-chu
-
-abara
-
+gama:
+<BLANKLINE>
+chu?
+<BLANKLINE>
+abara.
+<BLANKLINE>
 >>> text_indentation('gama:chu?aba.ra')
-gama
-
-chu
-
-aba
-
-ra>>>
+gama:
+<BLANKLINE>
+chu?
+<BLANKLINE>
+aba.
+<BLANKLINE>
+ra
 >>> text_indentation('gamachu?:.abara')
-gamachu
-
-
-
-
-
-abara>>>
+gamachu?
+<BLANKLINE>
+:
+<BLANKLINE>
+.
+<BLANKLINE>
+abara
 >>> text_indentation('gamachu.abara')
-gamachu
-
+gamachu.
+<BLANKLINE>
 abara
 >>> text_indentation('.hello:how:are:you?.')
-
-
-hello
-
-how
-
-are
-
-you
-
-
-
+.
+<BLANKLINE>
+hello:
+<BLANKLINE>
+how:
+<BLANKLINE>
+are:
+<BLANKLINE>
+you?
+<BLANKLINE>
+.
+<BLANKLINE>
 >>> text_indentation('')
 >>> text_indentation("4.4")
+4.
+<BLANKLINE>
 4
-
-4>>> text_indentation(4.4)
+>>> text_indentation(4.4)
 Traceback (most recent call last):
 	...
 TypeError: text must be a string
 >>> text_indentation("a")
 a
+>>> text_indentation("Holberton. School? How are you: John")
+Holberton.
+<BLANKLINE>
+School?
+<BLANKLINE>
+How are you:
+<BLANKLINE>
+John
+>>> text_indentation(".?\nQeerroo:\n.?")
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+<BLANKLINE>
+Qeerroo:
+<BLANKLINE>
+<BLANKLINE>
+.
+<BLANKLINE>
+?
+<BLANKLINE>
+>>> text_indentation("?.:")
+?
+<BLANKLINE>
+.
+<BLANKLINE>
+:
+<BLANKLINE>
+
+>>> def test_exceptions(func, tests):
+...     for test in tests:
+...         try:
+...             func(test)
+...         except Exception as e:
+...		        print("Failed with {} for input {}".format(type(e).__name__, type(test)))
+...         else:
+...             print("Did not fail for input {}".format(test))
+... 
+
+>>> tests = [2.3, 55, [1, 2], set("abracadabra"), {"a":1, "b":4.5}, test_exceptions, range(5), b'byte literal', None] 
+
+>>> test_exceptions(text_indentation, tests)
+Failed with TypeError for input <class 'float'>
+Failed with TypeError for input <class 'int'>
+Failed with TypeError for input <class 'list'>
+Failed with TypeError for input <class 'set'>
+Failed with TypeError for input <class 'dict'>
+Failed with TypeError for input <class 'function'>
+Failed with TypeError for input <class 'range'>
+Failed with TypeError for input <class 'bytes'>
+Failed with TypeError for input <class 'NoneType'>

@@ -21,9 +21,18 @@ def text_indentation(text):
     '''
     if not isinstance(text, str):
         raise TypeError("text must be a string")
-    list_of_lines = text.replace(".", ":").replace("?", ":").split(":")
-    count_line = 0
-    for line in list_of_lines:
-        count_line += 1
-        ends = '' if count_line == len(list_of_lines) else '\n\n'
-        print(line.strip(), end=ends)
+    text = text.strip()
+    letters = []
+    flag = 0
+    for letter in text:
+        if letter in ".?:":
+            flag = 1
+            letters.append(f"{letter}\n\n")
+        else:
+            if not flag:
+                letters.append(letter)
+            else:
+                if letter != " ":
+                    letters.append(letter)
+                    flag = 0
+    print("".join(letters), end="")
