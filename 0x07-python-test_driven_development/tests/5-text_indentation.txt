@@ -1,0 +1,56 @@
+The ``5-text_indentation`` module
+=================================
+Using text_indentation
+----------------------
+
+>>> text_indentation = __import__('5-text_indentation').text_indentation
+>>> text_indentation('gama:chu?abara.')
+gama
+
+chu
+
+abara
+
+>>> text_indentation('gama:chu?aba.ra')
+gama
+
+chu
+
+aba
+
+ra>>>
+>>> text_indentation('gamachu?:.abara')
+gamachu
+
+
+
+
+
+abara>>>
+>>> text_indentation('gamachu.abara')
+gamachu
+
+abara
+>>> text_indentation('.hello:how:are:you?.')
+
+
+hello
+
+how
+
+are
+
+you
+
+
+
+>>> text_indentation('')
+>>> text_indentation("4.4")
+4
+
+4>>> text_indentation(4.4)
+Traceback (most recent call last):
+	...
+TypeError: text must be a string
+>>> text_indentation("a")
+a
