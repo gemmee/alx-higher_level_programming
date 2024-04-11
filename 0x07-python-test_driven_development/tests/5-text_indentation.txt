@@ -84,6 +84,19 @@ Qeerroo:
 :
 <BLANKLINE>
 
+>>> text_indentation("    Akkam jirta? Namicho: Maqaan kee eenyu?")
+Akkam jirta?
+<BLANKLINE>
+Namicho:
+<BLANKLINE>
+Maqaan kee eenyu?
+<BLANKLINE>
+
+>>> text_indentation()
+Traceback (most recent call last):
+	...
+TypeError: text_indentation() missing 1 required positional argument: 'text'
+
 >>> def test_exceptions(func, tests):
 ...     for test in tests:
 ...         try:
