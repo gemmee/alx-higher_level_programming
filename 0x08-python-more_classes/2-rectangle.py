@@ -2,13 +2,31 @@
 '''
 This is '2-rectangle' module.
 
-It has two private instance attributes and two public instance methods
+This module contains 1 class Rectangle
 '''
 
 
 class Rectangle:
-    '''Defines a Rectangle'''
+    '''
+    Defines a Rectangle class
+
+    **Instance attributes**
+    width: private, must be a non-negative int
+    height: private, must be a non-negative int
+
+    **Public instance methods**
+    area(self)
+    perimeter(self)
+    '''
+
     def __init__(self, width=0, height=0):
+        '''
+        Instantiates a Rectangle
+
+        Args:
+            width: optional, a non-negative int
+            height: optional, a non-negative int
+        '''
         self.width = width
         self.height = height
 
@@ -40,4 +58,6 @@ class Rectangle:
         return self.__width * self.__height
 
     def perimeter(self):
+        if (self.__width == 0) or (self.__height == 0):
+            return 0
         return 2 * (self.__width + self.__height)
