@@ -1,0 +1,32 @@
+This is 1-my_list module test file
+==================================
+Using my_list
+-------------
+
+>>> MyList = __import__('1-my_list').MyList
+
+>>> my_list = MyList()
+>>> my_list.append(4)
+>>> my_list.append(3)
+>>> my_list.append(2)
+>>> my_list.append(1)
+>>> my_list.append(0)
+>>> my_list.append(-1)
+>>> print(my_list)
+[4, 3, 2, 1, 0, -1]
+>>> my_list.print_sorted()
+[-1, 0, 1, 2, 3, 4]
+>>> print(my_list)
+[4, 3, 2, 1, 0, -1]
+
+>>> my_list2 = MyList()
+>>> my_list2.append(-10)
+>>> my_list2.append(10)
+>>> my_list2.append(-40)
+>>> my_list2.append(40)
+>>> print(my_list2)
+[-10, 10, -40, 40]
+>>> my_list2.print_sorted()
+[-40, -10, 10, 40]
+>>> print(my_list2)
+[-10, 10, -40, 40]
