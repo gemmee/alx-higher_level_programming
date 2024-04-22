@@ -7,7 +7,11 @@ It contains one class MyList
 
 
 class MyList(list):
-    '''A class that inherits from list'''
+    '''
+    A class that inherits from list
+    '''
     def print_sorted(self):
-        '''Prints the list in anscending order'''
+        '''
+        Prints the list in anscending order
+        '''
         print(sorted(self))
