@@ -1,0 +1,44 @@
+This is 7-base_geometry module test file
+==================================
+Using integer_validator
+-----------------------
+
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+>>> bg = BaseGeometry()
+
+>>> bg.integer_validator("dheerina", 5)
+
+>>> try:
+...     bg.integer_validator("bal'ina", 0)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[ValueError] bal'ina must be greater than 0
+
+>>> try:
+...     bg.integer_validator("hojjaa", "160cm")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] hojjaa must be an integer
+
+>>> try:
+...     bg.integer_validator("name", "Gamachu")
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+...
+[TypeError] name must be an integer
+
+>>> try:
+...     bg.integer_validator("height", 160.92)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[TypeError] height must be an integer
+
+>>> try:
+...     bg.integer_validator("length", -40)
+... except Exception as e:
+...     print("[{}] {}".format(e.__class__.__name__, e))
+[ValueError] length must be greater than 0
+
