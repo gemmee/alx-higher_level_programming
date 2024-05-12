@@ -13,7 +13,7 @@ if __name__ == "__main__":
 
     try:
         arg_list = load_from_json_file(filename)
-    except:
+    except Exception:
         arg_list = []
 
     for arg in sys.argv[1:]:
