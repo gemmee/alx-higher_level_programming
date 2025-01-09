@@ -5,14 +5,12 @@
 -- if the table `second_table` exists, the script shouldn't fail
 -- usage of `SELECT` or `SHOW` statements is not allowed
 
--- Create the table second_table
 CREATE TABLE second_table (
 	id INT,
 	name VARCHAR(256),
 	score INT
 );
 
--- Insert records into the table
 INSERT INTO second_table
 	(id, name, score)
 VALUES
