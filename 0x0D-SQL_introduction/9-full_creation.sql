@@ -5,7 +5,7 @@
 -- if the table `second_table` exists, the script shouldn't fail
 -- usage of `SELECT` or `SHOW` statements is not allowed
 
-CREATE TABLE second_table (
+CREATE TABLE IF NOT EXISTS second_table (
 	id INT,
 	name VARCHAR(256),
 	score INT
@@ -18,3 +18,5 @@ VALUES
 	(2, "Alex", 3),
 	(3, "Bob", 14),
 	(4, "George", 8);
+
+TABLE second_table;
