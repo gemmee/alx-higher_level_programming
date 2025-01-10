@@ -16,6 +16,6 @@ ALTER TABLE `first_table`
 
 -- Modify the 'name' column to use utf8mb4 explicitly
 -- The ff is not needed as changing the table do the same
-ALTER TABLE `first_table`
-	CHANGE COLUMN `name` `name` VARCHAR(256)
-	CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- ALTER TABLE `first_table`
+--	CHANGE COLUMN `name` `name` VARCHAR(256)
+--	CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
