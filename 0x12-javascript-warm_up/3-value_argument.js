@@ -1,15 +1,2 @@
 #!/usr/bin/node
-
-// prints the first argument passed to it
-// if no arguments -> prints "No argument"
-// usage of var and length are not allowed
-
-// surprise ... Boolean([]) is true,
-// so I used Boolean([][0]) which is false in this case
-// and Boolean(undefined) is false
-
-const args = process.argv.slice(2);
-const firstArg = args[0] ? args[0] : 'No argument';
-console.log(firstArg);
-
-// process.argv.slice(2)[0] ? console.log(process.argv[2]) : console.log('No argument');
+console.log(typeof process.argv[2] === 'undefined' ? 'No argument' : process.argv[2]);
