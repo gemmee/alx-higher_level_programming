@@ -1,4 +1,4 @@
-#!/bin/env node
+#!/usr/bin/node
 // prints the first argument passed to it
 // if no arguments -> prints "No argument"
 // usage of var and length are not allowed
