@@ -8,5 +8,5 @@ const messages = [
 ];
 
 for (i = 0; i < 3; i++) {
-  console.log(messages[0]);
+  console.log(messages[i]);
 }
