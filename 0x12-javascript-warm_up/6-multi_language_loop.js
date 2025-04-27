@@ -1,11 +1,12 @@
 #!/usr/bin/node
 
+let mess;
 const messages = [
   'C is fun',
   'Python is cool',
   'JavaScript is amazing'
 ];
 
-for (const mess of messages) {
+for (mess of messages) {
   console.log(mess);
 }
