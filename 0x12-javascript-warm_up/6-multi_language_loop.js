@@ -1,11 +1,7 @@
 #!/usr/bin/node
 
 let i;
-const messages = [
-  'C is fun',
-  'Python is cool',
-  'JavaScript is amazing'
-];
+const messages = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
 
 for (i = 0; i < 3; i++) {
   console.log(messages[i]);
