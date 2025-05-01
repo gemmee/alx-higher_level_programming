@@ -2,14 +2,16 @@
 
 const request = require('request');
 
+/*
 const apiUrl = 'https://jsonplaceholder.typicode.com/todos';
 
 if (process.argv.length !== 3) {
   console.error(`Usage: ./6-completed_tasks.js ${apiUrl}`);
   process.exit(1);
 }
+*/
 
-request.get(apiUrl, (error, response, body) => {
+request.get(process.argv[2], (error, response, body) => {
   if (error) {
     console.error(error);
     return;
